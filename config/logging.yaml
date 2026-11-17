@@ -1,0 +1,16 @@
+# Structured JSON logger settings (utils/log.py reads this file).
+version: 1
+level: info                # debug | info | warn | error
+output: stderr             # stderr | stdout | file
+file: ~/.pump_research/pump-research.log
+rotate:
+  max_bytes: 5242880       # 5 MiB
+  backups: 3
+format:
+  include_timestamp: true
+  include_level: true
+  include_event: true
+  extra_fields: []
+redact:
+  # Keys that will be replaced with "***" if ever logged.
+  keys: [private_key, seed_phrase, secret, signature]

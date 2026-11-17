@@ -1,0 +1,22 @@
+# Defaults for `main.py paper`.
+paper:
+  events_file: ./events.json
+  amount_sol: 0.1
+  min_liquidity_sol: 5.0
+  max_entry_mc_sol: 50.0
+  take_profit_pct: 0.25    # 25%
+  stop_loss_pct: 0.15      # 15%
+  max_positions: 5
+  respect_cooldown: true
+  cooldown_seconds: 30     # per mint between entries
+  report:
+    show_open_positions: true
+    show_closed_positions: true
+    sort_by: opened_at     # opened_at | pnl | mint
+    sort_dir: desc
+
+risk:
+  # Optional sizing helper for paper mode.
+  sizing_mode: fixed       # fixed | risk_percent
+  risk_percent: 0.01       # 1% of a hypothetical balance, if sizing_mode=risk_percent
+  hypothetical_balance_sol: 10.0

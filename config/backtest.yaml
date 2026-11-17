@@ -1,0 +1,24 @@
+# Defaults for `main.py backtest`.
+backtest:
+  events_file: ./events.json
+  metrics:
+    - count
+    - min_mc
+    - max_mc
+    - avg_mc
+    - min_liquidity
+    - max_liquidity
+    - avg_liquidity
+    - turnover           # sum of mc / avg(liquidity)
+  output: table          # table | json | csv
+  csv_path: ~/.pump_research/backtest.csv
+  json_path: ~/.pump_research/backtest.json
+  include_metadata: true
+
+filters:
+  # Applied before metrics are computed. Set to null to disable a filter.
+  min_liquidity_sol: null
+  max_market_cap_sol: null
+  after: null            # ISO timestamp
+  before: null           # ISO timestamp
+  mints: []              # allowlist, empty = all

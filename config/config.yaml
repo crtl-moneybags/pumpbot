@@ -1,0 +1,36 @@
+# pump-research · application defaults
+# All values can be overridden by env vars of the form PUMP_<SECTION>_<KEY>
+# (e.g. PUMP_APP_CONNECT_PORT=5600) or by `main.py --config <file>`.
+
+app:
+  name: pump-research
+  version: 0.1.0
+  mode: read-only          # read-only | paper | backtest
+  rpc_url: https://api.mainnet-beta.solana.com
+  data_dir: ~/.pump_research
+  timezone: UTC
+
+session:
+  ttl_seconds: 86400       # 24h
+  file_mode: "0600"
+  refresh_on_use: false    # if true, extend ttl on each command
+
+widget:
+  connect_port: 5500
+  bind_host: 127.0.0.1
+  scripts_dir: ./scripts
+  page_file: main.html
+  wallet_js: wallet-connect.js
+  callback_timeout_seconds: 180
+  allow_manual_fallback: true
+
+ui:
+  color: auto              # auto | always | never
+  emoji: true
+  table_width: 54
+
+safety:
+  # These are hard invariants for this tool. Do not flip them.
+  allow_signing: false
+  allow_broadcast: false
+  allow_private_keys: false

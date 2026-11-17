@@ -1,0 +1,21 @@
+# Where event files come from. The CLI is read-only; sources must be local files
+# or explicitly-fetched public dumps. No live websocket/RPC trade feeds.
+sources:
+  synthetic:
+    enabled: true
+    path: ./events.json
+    generator:
+      script: python3 -m utils.mock
+      count: 40
+      seed: 42
+  local:
+    enabled: true
+    search_paths:
+      - ./events
+      - ./data
+    pattern: "*.json"
+  remote_snapshot:
+    enabled: false
+    url: null            # must be a static JSON dump, not a live feed
+    cache_path: ~/.pump_research/snapshots
+    max_age_seconds: 86400
