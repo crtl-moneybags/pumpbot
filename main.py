@@ -41,10 +41,6 @@ Local page (when no --url is set):
   window.__PUMP_CALLBACK__ ("/callback"). POST or GET `state` +
   `address` there to complete the connect.
 
-Intentionally NOT implemented:
-  auto-buy, order signing, transaction submission, MEV, bundling.
-Wallet connect stores ONLY a public address. No private keys are read.
-"""
 
 import argparse
 import json
